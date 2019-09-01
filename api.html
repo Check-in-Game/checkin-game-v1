@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="./icon.ico">
+    <title>Check-in Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/checkin-static@1.0.12/assets/bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/checkin-static@1.0.12/assets/bootstrap/js/bootstrap.bundle.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <!-- 幕布 -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-4">Check-in Game API协议</h1>
+        <p class="lead">API协议用于支持第三方客户端</p>
+        <p class="lead">
+          <a class="btn btn-primary" href="./index.php" target="_self" role="button">首页</a>
+        </p>
+      </div>
+    </div>
+    <div class="container">
+
+      <div class="alert alert-primary" role="alert">
+        <h4 class="alert-heading">签到流程</h4>
+        <ul>
+          <li>根据用户名和密码获取签到Token</li>
+          <li>提交用户名和签到Token</li>
+        </ul>
+      </div>
+
+      <div class="alert alert-primary" role="alert">
+        <h4 class="alert-heading">返回数据</h4>
+        <ul>
+          <li>数据均以JSON格式返回</li>
+        </ul>
+        <h5>返回值例子</h5>
+        <code>
+          {
+            "body": "example",
+            "code": 200,
+            "msg": "success"
+          }
+        </code>
+        <h5>返回值解释</h5>
+        <ul>
+          <li>body：返回值主体</li>
+          <li>code：情况编号，200为正常，404为找不到相关信息</li>
+          <li>msg：错误情况的大致描述</li>
+        </ul>
+      </div>
+
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">获取Token</h4>
+        <ul>
+          <li><strong>节点：</strong>/getToken.php</li>
+        </ul>
+        <h5>参数</h5>
+        <ul>
+          <li><strong>username：</strong>用户名</li>
+          <li><strong>password：</strong>密码</li>
+        </ul>
+        <h5>案例</h5>
+        <p>如要获取用户abcd123，密码12345678的Token：</p>
+        <ul>
+          <li><strong>提交地址：</strong>https://checkin.tcapps.twocola.com/getToken.php?username=abcd123&password=12345678</li>
+        </ul>
+        <h5>成功返回值</h5>
+        <code>
+          {body: "4f7dbfa46c0e0ff25db95d0d68f45584@abcd123", code: 200, msg: "success"}
+        </code>
+        <h5>失败返回值</h5>
+        <code>
+          {body: false, code: 404, msg: "Failed to generate token."}
+        </code>
+      </div>
+
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">签到</h4>
+        <ul>
+          <li><strong>节点：</strong>/checkIn.php</li>
+        </ul>
+        <h5>参数</h5>
+        <ul>
+          <li><strong>username：</strong>用户名</li>
+          <li><strong>token：</strong>签到Token</li>
+        </ul>
+        <h5>案例</h5>
+        <p>如要获取用户abcd123，Token为上方获取的4f7dbfa46c0e0ff25db95d0d68f45584@abcd123：</p>
+        <ul>
+          <li><strong>提交地址：</strong>https://checkin.tcapps.twocola.com/checkIn.php?username=abcd123&token=4f7dbfa46c0e0ff25db95d0d68f45584</li>
+        </ul>
+        <h5>成功返回值</h5>
+        <code>
+          {body: true, code: 200, msg: "success"}
+        </code>
+        <h5>失败返回值</h5>
+        <code>
+          {body: false, code: 404, msg: "Failed to check in."}
+        </code>
+      </div>
+
+
+    </div>
+  </body>
+</html>

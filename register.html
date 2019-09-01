@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="./icon.ico">
+    <title>Check-in Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/checkin-static@1.0.12/assets/bootstrap/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/checkin-static@1.0.12/assets/bootstrap/js/bootstrap.bundle.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <!-- 注册用户 -->
+    <div class="container">
+
+      <div class="alert alert-success" role="alert">
+        中文名称不能直接注册，可以使用签到累计的积分向管理员提交改名申请。
+      </div>
+
+      <h1>注册用户</h1>
+
+      <form class="" action="./register.php" method="post">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">用户名</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username">
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">密码</span>
+          </div>
+          <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="password">
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">确认密码</span>
+          </div>
+          <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="comfirm">
+        </div>
+
+        <p>
+          <input class="btn btn-primary float-right" type="submit" value="提交">
+        </p>
+      </form>
+
+    </div>
+  </body>
+</html>
